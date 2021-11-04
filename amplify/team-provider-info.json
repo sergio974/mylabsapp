@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify7f4cd5b83d104-staging-201010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::809105410470:role/amplify-amplify7f4cd5b83d104-staging-201010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::809105410470:role/amplify-amplify7f4cd5b83d104-staging-201010-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify7f4cd5b83d104-staging-201010-deployment",
+      "UnauthRoleName": "amplify-amplify7f4cd5b83d104-staging-201010-unauthRole",
+      "StackName": "amplify-amplify7f4cd5b83d104-staging-201010",
+      "StackId": "arn:aws:cloudformation:us-east-1:809105410470:stack/amplify-amplify7f4cd5b83d104-staging-201010/99771720-14ce-11ec-a783-0a0666c2d4fb",
+      "AmplifyAppId": "d3kvwvq1jh05gc"
+    },
+    "categories": {
+      "auth": {
+        "mylabsapp": {}
+      }
+    }
+  }
+}

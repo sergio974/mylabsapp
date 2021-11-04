@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "mylabsapp",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-amplify7f4cd5b83d104-staging-201010-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/2d09fe14e57466e2d11fb3ea9b0b9fd1e1d1cb8f"
+}

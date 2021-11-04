@@ -1,0 +1,87 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify7f4cd5b83d104-staging-201010-authRole",
+      "UnauthRoleArn": "arn:aws:iam::809105410470:role/amplify-amplify7f4cd5b83d104-staging-201010-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::809105410470:role/amplify-amplify7f4cd5b83d104-staging-201010-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify7f4cd5b83d104-staging-201010-deployment",
+      "UnauthRoleName": "amplify-amplify7f4cd5b83d104-staging-201010-unauthRole",
+      "StackName": "amplify-amplify7f4cd5b83d104-staging-201010",
+      "StackId": "arn:aws:cloudformation:us-east-1:809105410470:stack/amplify-amplify7f4cd5b83d104-staging-201010/99771720-14ce-11ec-a783-0a0666c2d4fb",
+      "AmplifyAppId": "d3kvwvq1jh05gc"
+    }
+  },
+  "auth": {
+    "mylabsapp": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "loginMechanisms": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify7f4cd5b83d104-staging-201010-deployment/amplify-cfn-templates/auth/mylabsapp-cloudformation-template.yml",
+        "logicalId": "authmylabsapp"
+      },
+      "lastPushTimeStamp": "2021-11-04T10:36:58.289Z",
+      "output": {
+        "UserPoolId": "us-east-1_oBdLu1o4h",
+        "AppClientIDWeb": "4oja61vjia3oe9o74i1bmfkgam",
+        "AppClientID": "7v1hjpv5b1g37k0umnd7kgoqn7",
+        "IdentityPoolId": "us-east-1:4f6520c7-f0e4-4c64-bbd6-08d9f34deafb",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:809105410470:userpool/us-east-1_oBdLu1o4h",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "mylabsapp"
+      },
+      "lastPushDirHash": "dCLds1r5UXkD9TPpHt2D88usJsY="
+    }
+  },
+  "api": {
+    "mylabsapp": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 100,
+              "description": "MylabsApi"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "vwehnjuzdnegtlmejnlykppbzi",
+        "GraphQLAPIEndpointOutput": "https://2b7a4mca3fe7df2d5a5nhyfqii.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-cqel4nnfwrgkrbcl6ikcf56wmi"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify7f4cd5b83d104-staging-201010-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apimylabsapp"
+      },
+      "lastPushTimeStamp": "2021-11-04T10:36:58.292Z",
+      "lastPushDirHash": "c2zRkdczjE6P6tYR2n3lzawsN54="
+    }
+  }
+}

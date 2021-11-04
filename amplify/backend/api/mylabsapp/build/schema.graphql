@@ -1,0 +1,153 @@
+type Lab {
+  id: ID!
+  name: String!
+  description: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelLabConnection {
+  items: [Lab]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelLabFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  description: ModelStringInput
+  and: [ModelLabFilterInput]
+  or: [ModelLabFilterInput]
+  not: ModelLabFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getLab(id: ID!): Lab
+  listLabs(filter: ModelLabFilterInput, limit: Int, nextToken: String): ModelLabConnection
+}
+
+input CreateLabInput {
+  id: ID
+  name: String!
+  description: String
+}
+
+input UpdateLabInput {
+  id: ID!
+  name: String
+  description: String
+}
+
+input DeleteLabInput {
+  id: ID!
+}
+
+type Mutation {
+  createLab(input: CreateLabInput!, condition: ModelLabConditionInput): Lab
+  updateLab(input: UpdateLabInput!, condition: ModelLabConditionInput): Lab
+  deleteLab(input: DeleteLabInput!, condition: ModelLabConditionInput): Lab
+}
+
+input ModelLabConditionInput {
+  name: ModelStringInput
+  description: ModelStringInput
+  and: [ModelLabConditionInput]
+  or: [ModelLabConditionInput]
+  not: ModelLabConditionInput
+}
+
+type Subscription {
+  onCreateLab: Lab @aws_subscribe(mutations: ["createLab"])
+  onUpdateLab: Lab @aws_subscribe(mutations: ["updateLab"])
+  onDeleteLab: Lab @aws_subscribe(mutations: ["deleteLab"])
+}

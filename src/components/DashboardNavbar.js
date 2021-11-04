@@ -12,10 +12,24 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
+
+import { Auth, Hub } from 'aws-amplify';
 import Logo from './Logo';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
+
+  const handleSignOutButtonClick = async () => {
+    try {
+      await Auth.signOut();
+      Hub.dispatch('UI Auth', { // channel must be 'UI Auth'
+        event: 'AuthStateChange', // event must be 'AuthStateChange'
+        message: 'signedout'// message must be 'signedout'
+      });
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+  };
 
   return (
     <AppBar
@@ -37,7 +51,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={handleSignOutButtonClick}>
             <InputIcon />
           </IconButton>
         </Hidden>
